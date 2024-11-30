@@ -1,0 +1,28 @@
+.div {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-direction: column;
+}
+
+.text {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+.input {
+  border: none;
+  border: 1px solid lightcoral;
+  border-radius: 10px;
+  padding: 5px 10px;
+  margin-bottom: 10px;
+  width: 260px;
+  transition: scale 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  box-shadow: 4px 4px 8px 0px rgba(255, 127, 80, 0.3);
+  &:hover {
+    scale: 102%;
+  }
+}
+
+.icon {
+  margin-right: 5px;
+}

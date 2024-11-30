@@ -1,0 +1,26 @@
+.text {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.button {
+  border: 1px solid white;
+  padding: 5px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  &:hover {
+    background-color: white;
+  }
+}
+
+.icon {
+  transition: color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.button:hover > .icon {
+  color: red;
+}
