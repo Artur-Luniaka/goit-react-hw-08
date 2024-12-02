@@ -20,12 +20,12 @@ const ContactForm = () => {
       .string()
       .min(3, "Too Short!")
       .max(30, "So Long!")
-      .required("Please,enter your name!"),
+      .required("Please, enter your name!"),
     number: yup
       .string()
       .min(3, "Too Short!")
       .max(15, "So Long!")
-      .required("Please,enter your phone number!"),
+      .required("Please, enter your phone number!"),
   });
 
   const addNewContact = (values, actions) => {
@@ -40,6 +40,7 @@ const ContactForm = () => {
       validationSchema={validationForm}
     >
       <Form className={s.form}>
+        <h2 className={s.title}>Add new contact by form below</h2>
         <div className={s.box}>
           <label className={s.label} htmlFor={nameFieldId}>
             Name

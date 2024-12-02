@@ -1,8 +1,65 @@
+import { ErrorMessage, Field, Form, Formik } from "formik";
+import { useId } from "react";
+import * as yup from "yup";
+import s from "./LoginPage.module.css";
+
 const LoginPage = () => {
+  const initialValues = {
+    email: "",
+    password: "",
+  };
+
+  const loginValidation = yup.object({
+    email: yup
+      .string()
+      .email("Please enter correct email")
+      .required("Please, enter your email"),
+    password: yup
+      .string()
+      .min(8, "Must be minimum 8 symbols")
+      .matches(/[A-Z]/, "Must be minimum 1 big letter")
+      .matches(/[a-z]/, "Must be minimum 1 small letter")
+      .matches(/\d/, "Must be minimum 1 digit")
+      .matches(/[!@#$%^&*(),.?":{}|<>]/, "Must be minimum 1 special symbol")
+      .required("Please, enter your password"),
+  });
+
+  const emailFieldId = useId();
+  const passwordFieldId = useId();
+
   return (
-    <div>
-      <h2>Page for Login</h2>
-    </div>
+    <Formik initialValues={initialValues} validationSchema={loginValidation}>
+      <Form className={s.form}>
+        <h2 className={s.title}>Please, enter your data for Login</h2>
+        <div className={s.box}>
+          <label className={s.label} htmlFor={emailFieldId}>
+            Email
+          </label>
+          <Field
+            className={s.input}
+            type="email"
+            name="email"
+            id={emailFieldId}
+          />
+          <ErrorMessage name="email" component="span" />
+        </div>
+        <div className={s.box}>
+          <label className={s.label} htmlFor={passwordFieldId}>
+            Password
+          </label>
+          <Field
+            className={s.input}
+            type="password"
+            name="password"
+            id={passwordFieldId}
+          />
+          <ErrorMessage name="password" component="span" />
+        </div>
+        <button className={s.button} type="submit">
+          Login
+        </button>
+      </Form>
+    </Formik>
   );
 };
 

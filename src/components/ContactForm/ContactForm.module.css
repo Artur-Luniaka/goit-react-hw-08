@@ -13,6 +13,12 @@
   box-shadow: 4px 4px 10px 0px rgba(255, 127, 80, 0.7);
 }
 
+.title {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
 .box {
   display: flex;
   flex-direction: column;
