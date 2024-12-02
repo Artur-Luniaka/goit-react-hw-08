@@ -1,7 +1,8 @@
 import "./App.css";
 import "modern-normalize/modern-normalize.css";
-import { lazy, Suspense } from "react";
+import { lazy } from "react";
 import { Route, Routes } from "react-router-dom";
+import Layout from "./components/Layout/Layout.jsx";
 
 const Home = lazy(() => import("./pages/Home/Home"));
 const RegistrationPage = lazy(() =>
@@ -14,7 +15,7 @@ const NotFoundPage = lazy(() => import("./pages/NotFoundPage/NotFoundPage"));
 const App = () => {
   return (
     <>
-      <Suspense fallback={<h2>Loading...</h2>}>
+      <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="registration" element={<RegistrationPage />} />
@@ -22,7 +23,7 @@ const App = () => {
           <Route path="contacts" element={<ContactsPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
-      </Suspense>
+      </Layout>
     </>
   );
 };
