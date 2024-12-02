@@ -1,34 +1,28 @@
 import "./App.css";
 import "modern-normalize/modern-normalize.css";
-import ContactList from "./components/ContactList/ContactList";
-import SearchBox from "./components/SearchBox/SearchBox";
-import ContactForm from "./components/ContactForm/ContactForm";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import { fetchContacts } from "./redux/contactsOps";
-import { selectError, selectLoader } from "./redux/contactsSlice";
-import { MagnifyingGlass } from "react-loader-spinner";
+import { lazy, Suspense } from "react";
+import { Route, Routes } from "react-router-dom";
+
+const Home = lazy(() => import("./pages/Home/Home"));
+const RegistrationPage = lazy(() =>
+  import("./pages/RegistrationPage/RegistrationPage.jsx")
+);
+const LoginPage = lazy(() => import("./pages/LoginPage/LoginPage.jsx"));
+const ContactsPage = lazy(() => import("./pages/ContactsPage/ContactsPage"));
+const NotFoundPage = lazy(() => import("./pages/NotFoundPage/NotFoundPage"));
 
 const App = () => {
-  const dispatch = useDispatch();
-  const loader = useSelector(selectLoader);
-  const error = useSelector(selectError);
-
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
-
   return (
     <>
-      <h1>Phonebook</h1>
-      <ContactForm />
-      <SearchBox />
-      {loader && (
-        <div className="loader_box">
-          <MagnifyingGlass wrapperStyle={{}} />
-        </div>
-      )}
-      {!error && <ContactList />}
+      <Suspense fallback={<h2>Loading...</h2>}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="registration" element={<RegistrationPage />} />
+          <Route path="login" element={<LoginPage />} />
+          <Route path="contacts" element={<ContactsPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </Suspense>
     </>
   );
 };
