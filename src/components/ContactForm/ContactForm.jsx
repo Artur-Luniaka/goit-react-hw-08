@@ -4,7 +4,7 @@ import * as yup from "yup";
 import { useId } from "react";
 import { PiUserPlusFill } from "react-icons/pi";
 import { useDispatch } from "react-redux";
-import { addContact } from "../../redux/contactsOps";
+import { addContact } from "../../redux/contacts/operations";
 
 const ContactForm = () => {
   const dispatch = useDispatch();

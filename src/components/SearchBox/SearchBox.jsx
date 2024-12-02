@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import s from "./SearchBox.module.css";
 import { MdOutlinePersonSearch } from "react-icons/md";
-import { setNameFilter } from "../../redux/filtersSlice";
+import { setNameFilter } from "../../redux/filters/slice";
 
 const SearchBox = () => {
   const dispatch = useDispatch();
