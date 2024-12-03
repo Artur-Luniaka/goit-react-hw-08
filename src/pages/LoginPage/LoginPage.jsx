@@ -2,8 +2,11 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useId } from "react";
 import * as yup from "yup";
 import s from "./LoginPage.module.css";
+import { useDispatch } from "react-redux";
+import { login } from "../../redux/auth/operations";
 
 const LoginPage = () => {
+  const dispatch = useDispatch();
   const initialValues = {
     email: "",
     password: "",
@@ -20,15 +23,23 @@ const LoginPage = () => {
       .matches(/[A-Z]/, "Must be minimum 1 big letter")
       .matches(/[a-z]/, "Must be minimum 1 small letter")
       .matches(/\d/, "Must be minimum 1 digit")
-      .matches(/[!@#$%^&*(),.?":{}|<>]/, "Must be minimum 1 special symbol")
       .required("Please, enter your password"),
   });
 
   const emailFieldId = useId();
   const passwordFieldId = useId();
 
+  const contactLogin = (values, actions) => {
+    dispatch(login(values));
+    actions.resetForm();
+  };
+
   return (
-    <Formik initialValues={initialValues} validationSchema={loginValidation}>
+    <Formik
+      initialValues={initialValues}
+      validationSchema={loginValidation}
+      onSubmit={contactLogin}
+    >
       <Form className={s.form}>
         <h2 className={s.title}>Please, enter your data for Login</h2>
         <div className={s.box}>

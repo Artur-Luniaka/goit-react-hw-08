@@ -2,8 +2,11 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useId } from "react";
 import * as yup from "yup";
 import s from "./RegistrationPage.module.css";
+import { useDispatch } from "react-redux";
+import { register } from "../../redux/auth/operations";
 
 const RegistrationPage = () => {
+  const dispatch = useDispatch();
   const initialValues = {
     name: "",
     email: "",
@@ -29,12 +32,20 @@ const RegistrationPage = () => {
       .matches(/[A-Z]/, "Must be minimum 1 big letter")
       .matches(/[a-z]/, "Must be minimum 1 small letter")
       .matches(/\d/, "Must be minimum 1 digit")
-      .matches(/[!@#$%^&*(),.?":{}|<>]/, "Must be minimum 1 special symbol")
       .required("Please, enter your password"),
   });
 
+  const contactRegistration = (values, actions) => {
+    dispatch(register(values));
+    actions.resetForm();
+  };
+
   return (
-    <Formik initialValues={initialValues} validationSchema={signUpValidation}>
+    <Formik
+      initialValues={initialValues}
+      validationSchema={signUpValidation}
+      onSubmit={contactRegistration}
+    >
       <Form className={s.form}>
         <h2 className={s.title}>Please, fill the form below for SignUp</h2>
         <div className={s.box}>
