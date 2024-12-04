@@ -6,7 +6,11 @@ import Layout from "./components/Layout/Layout.jsx";
 import RestrictedRoute from "./components/RestrictedRoute/RestrictedRoute.jsx";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute.jsx";
 import { useDispatch, useSelector } from "react-redux";
-import { selectIsRefreshing } from "./redux/auth/selectors.js";
+import {
+  selectIsRefreshing,
+  selectToken,
+  selectIsLoggedIn,
+} from "./redux/auth/selectors.js";
 import { refreshUser } from "./redux/auth/operations.js";
 
 const Home = lazy(() => import("./pages/Home/Home"));
@@ -20,10 +24,14 @@ const NotFoundPage = lazy(() => import("./pages/NotFoundPage/NotFoundPage"));
 const App = () => {
   const dispatch = useDispatch();
   const isRefreshing = useSelector(selectIsRefreshing);
+  const token = useSelector(selectToken);
+  const logged = useSelector(selectIsLoggedIn);
 
   useEffect(() => {
-    dispatch(refreshUser());
-  }, [dispatch]);
+    if (token && !logged) {
+      dispatch(refreshUser());
+    }
+  }, [dispatch, token, logged]);
 
   return isRefreshing ? (
     <b>Refreshing user...</b>
