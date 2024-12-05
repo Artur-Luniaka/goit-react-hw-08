@@ -5,7 +5,7 @@
 }
 
 .button {
-  border: 1px solid white;
+  border: 1px solid #f8f8f8;
   padding: 5px;
   border-radius: 10px;
   display: flex;
@@ -13,7 +13,7 @@
   align-items: center;
   transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   &:hover {
-    background-color: white;
+    background-color: #f8f8f8;
   }
 }
 

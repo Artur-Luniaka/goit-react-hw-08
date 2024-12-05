@@ -1,0 +1,54 @@
+.wrapper {
+  background-color: #f8f8f8;
+  padding: 40px;
+  border-radius: 8px;
+}
+
+.wrapper_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.title {
+  color: #f8f8f8;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 26px;
+  font-weight: 400;
+  margin-bottom: 30px;
+  color: #121212;
+}
+
+.btn_green {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Courier New", Courier, monospace;
+  padding: 8px 12px;
+  border-radius: 10px;
+  outline: none;
+  border: 1px solid #2ecc71;
+  color: #2ecc71;
+  transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  &:hover,
+  &:focus {
+    transform: scale(110%);
+  }
+}
+.btn_red {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Courier New", Courier, monospace;
+  padding: 8px 12px;
+  border-radius: 10px;
+  outline: none;
+  border: 1px solid red;
+  color: red;
+  transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  &:hover,
+  &:focus {
+    transform: scale(110%);
+  }
+}

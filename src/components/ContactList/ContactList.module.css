@@ -13,11 +13,12 @@
   gap: 50px;
   justify-content: space-between;
   align-items: center;
-  background-color: lightcoral;
-  color: white;
+  background-color: #2ecc71;
+  color: #f8f8f8;
   font-family: "Courier New", Courier, monospace;
-  min-width: 250px;
-  box-shadow: 4px 4px 8px 0px rgba(255, 127, 80, 0.6);
+  font-size: 16px;
+  min-width: 350px;
+  box-shadow: 0 4px 6px rgba(0, 128, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.1);
   transition: scale 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   &:hover {
     scale: 102%;

@@ -3,11 +3,20 @@ import { fetchContacts, addContact, deleteContact } from "./operations";
 
 const initialState = {
   items: [],
+  modal: false,
 };
 
 const slice = createSlice({
   name: "contacts",
   initialState,
+  reducers: {
+    activeModal: (state) => {
+      state.modal = true;
+    },
+    diactiveModal: (state) => {
+      state.modal = false;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchContacts.fulfilled, (state, action) => {
@@ -22,6 +31,7 @@ const slice = createSlice({
       })
       .addCase(deleteContact.fulfilled, (state, action) => {
         state.isLoading = false;
+        state.modal = false;
         state.items = state.items.filter(
           (contact) => contact.id !== action.payload.id
         );
@@ -29,3 +39,4 @@ const slice = createSlice({
   },
 });
 export default slice.reducer;
+export const { activeModal, diactiveModal } = slice.actions;
