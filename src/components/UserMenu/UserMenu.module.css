@@ -1,4 +1,33 @@
 .wrapper {
   display: flex;
-  gap: 10px;
+  gap: 15px;
+  align-items: center;
+}
+
+.text {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 18px;
+  color: #121212;
+}
+
+.accent {
+  color: #2ecc71;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Courier New", Courier, monospace;
+  padding: 3px 6px;
+  border-radius: 8px;
+  outline: none;
+  border: 1px solid #2ecc71;
+  transition: color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
+    border 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  &:hover,
+  &:focus {
+    color: #2ecc71;
+    border: 1px solid #121212;
+  }
 }

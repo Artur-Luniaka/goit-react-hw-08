@@ -1,0 +1,13 @@
+.header_wrapper {
+  margin: 0 auto;
+  max-width: 1280px;
+  padding: 10px 15px;
+  margin-bottom: 20px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+}
+
+.main_wrapper {
+  margin: 0 auto;
+  max-width: 1280px;
+}

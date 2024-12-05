@@ -1,4 +1,20 @@
 .wrapper {
   display: flex;
+  align-items: center;
   gap: 10px;
+}
+
+.nav_link {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  color: #121212;
+  font-size: 20px;
+  outline: none;
+  transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  &:hover,
+  &:focus {
+    transform: scale(105%);
+  }
+}
+.active {
+  color: #2ecc71;
 }

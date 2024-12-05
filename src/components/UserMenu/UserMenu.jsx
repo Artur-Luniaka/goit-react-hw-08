@@ -13,8 +13,12 @@ const UserMenu = () => {
 
   return (
     <div className={s.wrapper}>
-      <p>Welcome, {userName}</p>
-      <button onClick={handleLogout}>Log Out</button>
+      <p className={s.text}>
+        Welcome, <span className={s.accent}>{userName}</span>
+      </p>
+      <button className={s.btn} onClick={handleLogout}>
+        Log Out
+      </button>
     </div>
   );
 };
