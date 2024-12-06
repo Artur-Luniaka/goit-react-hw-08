@@ -8,6 +8,7 @@ import PrivateRoute from "./components/PrivateRoute/PrivateRoute.jsx";
 import { useDispatch, useSelector } from "react-redux";
 import { selectIsRefreshing, selectToken } from "./redux/auth/selectors.js";
 import { refreshUser } from "./redux/auth/operations.js";
+import { stopRefreshing } from "./redux/auth/slice.js";
 
 const Home = lazy(() => import("./pages/Home/Home"));
 const RegistrationPage = lazy(() =>
@@ -25,6 +26,8 @@ const App = () => {
   useEffect(() => {
     if (token) {
       dispatch(refreshUser());
+    } else {
+      dispatch(stopRefreshing());
     }
   }, [dispatch, token]);
 

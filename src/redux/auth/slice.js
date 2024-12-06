@@ -8,12 +8,17 @@ const initialState = {
   },
   token: null,
   isLoggedIn: false,
-  isRefreshing: false,
+  isRefreshing: true,
 };
 
 const slice = createSlice({
   name: "auth",
   initialState,
+  reducers: {
+    stopRefreshing: (state) => {
+      state.isRefreshing = false;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(register.fulfilled, (state, action) => {
@@ -51,3 +56,4 @@ const slice = createSlice({
 });
 
 export default slice.reducer;
+export const { stopRefreshing } = slice.actions;
