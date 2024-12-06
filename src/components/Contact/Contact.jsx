@@ -14,7 +14,7 @@ import {
 } from "../../redux/contacts/selectors";
 import DeleteModal from "../DeleteModal/DeleteModal";
 import { FaEdit } from "react-icons/fa";
-import EditModal from "../editModal/editModal";
+import EditModal from "../EditModal/EditModal";
 
 const Contact = ({ name, number, id }) => {
   const dispatch = useDispatch();
