@@ -7,8 +7,8 @@
   justify-content: center;
   margin-bottom: 10px;
   border-radius: 10px;
-  background-color: #2ecc71;
-  color: #f8f8f8;
+  background-color: #f8f8f8;
+  color: #121212;
   margin: 0 auto;
   margin-bottom: 10px;
   box-shadow: 0 4px 6px rgba(0, 128, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -16,7 +16,7 @@
 
 .title {
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  color: #f8f8f8;
+  color: #121212;
   font-weight: 500;
   font-size: 28px;
   text-align: center;
@@ -33,10 +33,11 @@
   font-family: "Courier New", Courier, monospace;
   margin-bottom: 5px;
   font-size: 18px;
+  color: #2ecc71;
 }
 
 .input {
-  border: 1px solid #f8f8f8;
+  border: 1px solid #2ecc71;
   border-radius: 10px;
   padding: 5px 10px;
   margin-bottom: 15px;
@@ -47,20 +48,42 @@
   }
 }
 
-.button {
+.wrapper_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.btn_green {
+  font-family: "Courier New", Courier, monospace;
   padding: 8px 12px;
   border-radius: 10px;
-  border: 1px solid #f8f8f8;
+  border: 1px solid #2ecc71;
   display: flex;
   gap: 5px;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
-  transition: color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
-    background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-  &:hover {
-    background-color: #f8f8f8;
-    color: #2ecc71;
-    border: 1px solid #2ecc71;
+  color: #2ecc71;
+  transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  &:hover,
+  &:focus {
+    transform: scale(110%);
+  }
+}
+.btn_red {
+  font-family: "Courier New", Courier, monospace;
+  padding: 6px 10px;
+  border-radius: 10px;
+  border: 1px solid red;
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+  color: red;
+  transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  &:hover,
+  &:focus {
+    transform: scale(110%);
   }
 }

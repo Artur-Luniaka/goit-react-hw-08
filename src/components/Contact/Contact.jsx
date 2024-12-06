@@ -21,9 +21,9 @@ const Contact = ({ name, number, id }) => {
   const delModal = useSelector(selectDelModal);
   const editModal = useSelector(selectEditModal);
 
-  const handleEditForm = ({ name, number }) => {
+  const handleEditForm = ({ name, number, id }) => {
     dispatch(activeEditModal());
-    dispatch(getContactData({ name, number }));
+    dispatch(getContactData({ name, number, id }));
   };
 
   return (
@@ -43,7 +43,7 @@ const Contact = ({ name, number, id }) => {
       <div className={s.wrapper_btn}>
         <button
           className={s.edit_btn}
-          onClick={() => handleEditForm({ name, number })}
+          onClick={() => handleEditForm({ name, number, id })}
         >
           <FaEdit className={s.icon} />
         </button>

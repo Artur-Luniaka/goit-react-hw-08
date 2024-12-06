@@ -9,6 +9,7 @@ import {
   selectEditModal,
 } from "../../redux/contacts/selectors";
 import { diactiveEditModal } from "../../redux/contacts/slice";
+import { editContact } from "../../redux/contacts/operations";
 
 const EditModal = () => {
   const dispatch = useDispatch();
@@ -42,12 +43,17 @@ const EditModal = () => {
     flexDirection: "column",
   };
 
+  const handleEditSubmit = (values) => {
+    dispatch(editContact(values));
+  };
+
   return (
     <Modal sx={style} open={editModal}>
       <Box sx={style}>
         <Formik
           initialValues={initialEditForm}
           validationSchema={validationForm}
+          onSubmit={(values) => handleEditSubmit(values)}
         >
           <Form className={s.form}>
             <h2 className={s.title}>Edit your contact by form below</h2>
@@ -75,16 +81,18 @@ const EditModal = () => {
               />
               <ErrorMessage name="number" component="span" />
             </div>
-            <button className={s.button} type="submit">
-              Edit Contact
-            </button>
-            <button
-              type="button"
-              className={s.button}
-              onClick={handleCloseModal}
-            >
-              Cancel
-            </button>
+            <div className={s.wrapper_btn}>
+              <button className={s.btn_green} type="submit">
+                Edit
+              </button>
+              <button
+                type="button"
+                className={s.btn_red}
+                onClick={handleCloseModal}
+              >
+                Cancel
+              </button>
+            </div>
           </Form>
         </Formik>
       </Box>
