@@ -4,7 +4,12 @@
   gap: 5px;
 }
 
-.button {
+.wrapper_btn {
+  display: flex;
+  gap: 5px;
+}
+
+.del_btn {
   border: 1px solid #f8f8f8;
   padding: 5px;
   border-radius: 10px;
@@ -21,6 +26,23 @@
   transition: color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
-.button:hover > .icon {
+.del_btn:hover > .icon {
   color: red;
+}
+
+.edit_btn {
+  border: 1px solid #f8f8f8;
+  padding: 5px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  &:hover {
+    background-color: #f8f8f8;
+  }
+}
+
+.edit_btn:hover > .icon {
+  color: #2ecc71;
 }

@@ -1,0 +1,66 @@
+.form {
+  max-width: 400px;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  justify-content: center;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  background-color: #2ecc71;
+  color: #f8f8f8;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 6px rgba(0, 128, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  color: #f8f8f8;
+  font-weight: 500;
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.label {
+  font-family: "Courier New", Courier, monospace;
+  margin-bottom: 5px;
+  font-size: 18px;
+}
+
+.input {
+  border: 1px solid #f8f8f8;
+  border-radius: 10px;
+  padding: 5px 10px;
+  margin-bottom: 15px;
+  max-width: 100%;
+  transition: scale 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  &:hover {
+    scale: 103%;
+  }
+}
+
+.button {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid #f8f8f8;
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  transition: color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
+    background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  &:hover {
+    background-color: #f8f8f8;
+    color: #2ecc71;
+    border: 1px solid #2ecc71;
+  }
+}

@@ -1,13 +1,13 @@
 import { Box, Modal } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import { selectModal } from "../../redux/contacts/selectors";
+import { selectDelModal } from "../../redux/contacts/selectors";
 import { diactiveModal } from "../../redux/contacts/slice";
 import { deleteContact } from "../../redux/contacts/operations";
 import s from "./DeleteModal.module.css";
 
 const DeleteModal = ({ id }) => {
   const dispatch = useDispatch();
-  const modal = useSelector(selectModal);
+  const modal = useSelector(selectDelModal);
 
   const isDeleteContact = () => {
     dispatch(deleteContact(id));

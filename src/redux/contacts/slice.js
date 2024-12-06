@@ -3,7 +3,12 @@ import { fetchContacts, addContact, deleteContact } from "./operations";
 
 const initialState = {
   items: [],
-  modal: false,
+  delModal: false,
+  editModal: false,
+  editForm: {
+    name: null,
+    number: null,
+  },
 };
 
 const slice = createSlice({
@@ -11,10 +16,21 @@ const slice = createSlice({
   initialState,
   reducers: {
     activeModal: (state) => {
-      state.modal = true;
+      state.delModal = true;
     },
     diactiveModal: (state) => {
-      state.modal = false;
+      state.delModal = false;
+    },
+    activeEditModal: (state) => {
+      state.editModal = true;
+    },
+    diactiveEditModal: (state) => {
+      state.editModal = false;
+      state.editForm.name = null;
+      state.editForm.number = null;
+    },
+    getContactData: (state, action) => {
+      state.editForm = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -31,7 +47,7 @@ const slice = createSlice({
       })
       .addCase(deleteContact.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.modal = false;
+        state.delModal = false;
         state.items = state.items.filter(
           (contact) => contact.id !== action.payload.id
         );
@@ -39,4 +55,10 @@ const slice = createSlice({
   },
 });
 export default slice.reducer;
-export const { activeModal, diactiveModal } = slice.actions;
+export const {
+  activeModal,
+  diactiveModal,
+  activeEditModal,
+  diactiveEditModal,
+  getContactData,
+} = slice.actions;
