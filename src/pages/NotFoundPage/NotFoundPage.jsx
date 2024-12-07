@@ -1,7 +1,9 @@
+import s from "./NotFoundPage.module.css";
+
 const NotFoundPage = () => {
   return (
-    <div>
-      <h2>Ooops...something come wrong</h2>
+    <div className={s.wrapper}>
+      <h2 className={s.title}>😑 Ooops...something come wrong 😑</h2>
     </div>
   );
 };

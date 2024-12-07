@@ -3,6 +3,8 @@ import ContactForm from "../../components/ContactForm/ContactForm";
 import ContactList from "../../components/ContactList/ContactList";
 import SearchBox from "../../components/SearchBox/SearchBox";
 import { selectLoader } from "../../redux/common/selectors";
+import { Triangle } from "react-loader-spinner";
+import s from "./ContactsPage.module.css";
 
 const ContactsPage = () => {
   const loader = useSelector(selectLoader);
@@ -12,7 +14,11 @@ const ContactsPage = () => {
       <ContactForm />
       <SearchBox />
       <ContactList />
-      {loader && <h2>Loading in progress</h2>}
+      {loader && (
+        <div className={s.loader}>
+          <Triangle />
+        </div>
+      )}
     </>
   );
 };

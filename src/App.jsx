@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectIsRefreshing, selectToken } from "./redux/auth/selectors.js";
 import { refreshUser } from "./redux/auth/operations.js";
 import { stopRefreshing } from "./redux/auth/slice.js";
+import { Triangle } from "react-loader-spinner";
 
 const Home = lazy(() => import("./pages/Home/Home"));
 const RegistrationPage = lazy(() =>
@@ -32,7 +33,9 @@ const App = () => {
   }, [dispatch, token]);
 
   return isRefreshing ? (
-    <b>Refreshing user...</b>
+    <div className="loader">
+      <Triangle />
+    </div>
   ) : (
     <>
       <Layout>

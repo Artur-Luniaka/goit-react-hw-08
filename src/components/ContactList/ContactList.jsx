@@ -4,6 +4,7 @@ import s from "./ContactList.module.css";
 import { selectFilteredContacts } from "../../redux/contacts/selectors";
 import { useEffect } from "react";
 import { fetchContacts } from "../../redux/contacts/operations";
+import { Triangle } from "react-loader-spinner";
 
 const ContactList = () => {
   const dispatch = useDispatch();
@@ -26,7 +27,9 @@ const ContactList = () => {
       ))}
     </ul>
   ) : (
-    <h2>Contacts not found...</h2>
+    <div className={s.loader}>
+      <Triangle />
+    </div>
   );
 };
 

@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import AppBar from "../AppBar/AppBar";
 import s from "./Layout.module.css";
+import { Triangle } from "react-loader-spinner";
 const Layout = ({ children }) => {
   return (
     <>
@@ -8,7 +9,15 @@ const Layout = ({ children }) => {
         <AppBar />
       </header>
       <main className={s.main_wrapper}>
-        <Suspense fallback={<h2>Loading...</h2>}>{children}</Suspense>
+        <Suspense
+          fallback={
+            <div className={s.loader}>
+              <Triangle />
+            </div>
+          }
+        >
+          {children}
+        </Suspense>
       </main>
     </>
   );

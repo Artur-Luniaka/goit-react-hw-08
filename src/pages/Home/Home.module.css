@@ -1,0 +1,52 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 70vh;
+  margin: 0 auto;
+}
+
+.title {
+  margin: 0 auto;
+  text-align: center;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-weight: 400;
+  font-size: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
+  color: #121212;
+}
+
+.title_icon {
+  color: #2ecc71;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.item {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 32px;
+}
+
+.add_icon {
+  color: #2ecc71;
+}
+
+.edit_icon {
+  color: rgb(236, 236, 8);
+}
+
+.del_icon {
+  color: red;
+}

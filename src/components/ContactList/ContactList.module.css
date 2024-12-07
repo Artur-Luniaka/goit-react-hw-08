@@ -24,3 +24,9 @@
     scale: 102%;
   }
 }
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
