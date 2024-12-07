@@ -5,10 +5,17 @@
 }
 
 .nav_link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   color: #121212;
   font-size: 20px;
   outline: none;
+  padding: 3px 6px;
+  border: 1px solid #121212;
+  border-radius: 10px;
   transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   &:hover,
   &:focus {
@@ -17,4 +24,5 @@
 }
 .active {
   color: #2ecc71;
+  border: 1px solid #2ecc71;
 }

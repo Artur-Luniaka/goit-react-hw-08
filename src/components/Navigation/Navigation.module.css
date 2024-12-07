@@ -5,6 +5,10 @@
 }
 
 .nav_link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   color: #121212;
   font-size: 20px;

@@ -1,6 +1,8 @@
 import { NavLink } from "react-router-dom";
 import s from "./AuthNav.module.css";
 import clsx from "clsx";
+import { TbLockPlus } from "react-icons/tb";
+import { TbLockQuestion } from "react-icons/tb";
 
 const AuthNav = () => {
   const linkClass = ({ isActive }) => {
@@ -10,9 +12,11 @@ const AuthNav = () => {
   return (
     <div className={s.wrapper}>
       <NavLink className={linkClass} to="registration">
+        <TbLockPlus />
         Sign Up
       </NavLink>
       <NavLink className={linkClass} to="login">
+        <TbLockQuestion />
         Log In
       </NavLink>
     </div>

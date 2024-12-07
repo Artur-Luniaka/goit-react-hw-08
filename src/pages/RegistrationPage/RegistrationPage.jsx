@@ -4,6 +4,7 @@ import * as yup from "yup";
 import s from "./RegistrationPage.module.css";
 import { useDispatch } from "react-redux";
 import { register } from "../../redux/auth/operations";
+import { MdBookmarkAdd } from "react-icons/md";
 
 const RegistrationPage = () => {
   const dispatch = useDispatch();
@@ -80,6 +81,7 @@ const RegistrationPage = () => {
           <ErrorMessage name="password" component="span" />
         </div>
         <button className={s.button} type="submit">
+          <MdBookmarkAdd />
           Sign Up
         </button>
       </Form>
