@@ -7,7 +7,6 @@ const SearchBox = () => {
   const dispatch = useDispatch();
 
   const handleSearchChange = (e) => dispatch(setNameFilter(e.target.value));
-
   return (
     <>
       <div className={s.div}>

@@ -4,6 +4,7 @@ import { selectDelModal } from "../../redux/contacts/selectors";
 import { diactiveModal } from "../../redux/contacts/slice";
 import { deleteContact } from "../../redux/contacts/operations";
 import s from "./DeleteModal.module.css";
+import toast from "react-hot-toast";
 
 const DeleteModal = ({ id }) => {
   const dispatch = useDispatch();
@@ -11,6 +12,14 @@ const DeleteModal = ({ id }) => {
 
   const isDeleteContact = () => {
     dispatch(deleteContact(id));
+    toast.success("Contact deleted succesfully 👏", {
+      duration: 3000,
+      position: "bottom-center",
+      style: {
+        backgroundColor: "#f8f8f8",
+        color: "red",
+      },
+    });
   };
 
   const handleCloseModal = () => {

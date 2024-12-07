@@ -5,6 +5,7 @@ import { useId } from "react";
 import { PiUserPlusFill } from "react-icons/pi";
 import { useDispatch } from "react-redux";
 import { addContact } from "../../redux/contacts/operations";
+import toast from "react-hot-toast";
 
 const ContactForm = () => {
   const dispatch = useDispatch();
@@ -30,6 +31,14 @@ const ContactForm = () => {
 
   const addNewContact = (values, actions) => {
     dispatch(addContact(values));
+    toast.success("Contact added succesfully 🥳", {
+      duration: 3000,
+      position: "bottom-center",
+      style: {
+        backgroundColor: "#f8f8f8",
+        color: "#2ecc71",
+      },
+    });
     actions.resetForm();
   };
 

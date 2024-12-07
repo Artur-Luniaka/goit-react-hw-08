@@ -10,6 +10,7 @@ import {
 } from "../../redux/contacts/selectors";
 import { diactiveEditModal } from "../../redux/contacts/slice";
 import { editContact } from "../../redux/contacts/operations";
+import toast from "react-hot-toast";
 
 const EditModal = () => {
   const dispatch = useDispatch();
@@ -45,6 +46,14 @@ const EditModal = () => {
 
   const handleEditSubmit = (values) => {
     dispatch(editContact(values));
+    toast.success("Contact edited succesfully 📝", {
+      duration: 3000,
+      position: "bottom-center",
+      style: {
+        backgroundColor: "#f8f8f8",
+        color: "#2ecc71",
+      },
+    });
   };
 
   return (

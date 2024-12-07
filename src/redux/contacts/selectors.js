@@ -8,10 +8,10 @@ export const selectEditForm = (state) => state.contacts.editForm;
 
 export const selectFilteredContacts = createSelector(
   [selectContacts, selectNameFilter],
-  (contacts, setFilter) =>
+  (contacts, setNameFilter) =>
     contacts.filter((contact) =>
-      setFilter
-        ? contact.name.toLowerCase().includes(setFilter.toLowerCase())
+      setNameFilter
+        ? contact.name.toLowerCase().includes(setNameFilter.toLowerCase())
         : true
     )
 );
