@@ -15,6 +15,14 @@ export const register = createAsyncThunk(
   "auth/register",
   async ({ name, email, password }, thunkApi) => {
     try {
+      toast.success("Successfully signedUp ✅", {
+        position: "bottom-center",
+        duration: 3000,
+        style: {
+          backgroundColor: "#f8f8f8",
+          color: "#2ecc71",
+        },
+      });
       const response = await axios.post("/users/signup", {
         name,
         email,
