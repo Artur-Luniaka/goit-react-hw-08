@@ -12,7 +12,7 @@ const DeleteModal = ({ id }) => {
 
   const isDeleteContact = () => {
     dispatch(deleteContact(id));
-    toast.success("Contact deleted succesfully 👏", {
+    toast.success("Contact deleted successfully 👏", {
       duration: 3000,
       position: "bottom-center",
       style: {

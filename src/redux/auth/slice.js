@@ -8,7 +8,7 @@ const initialState = {
   },
   token: null,
   isLoggedIn: false,
-  isRefreshing: true,
+  isRefreshing: false,
 };
 
 const slice = createSlice({

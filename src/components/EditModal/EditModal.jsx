@@ -46,7 +46,7 @@ const EditModal = () => {
 
   const handleEditSubmit = (values) => {
     dispatch(editContact(values));
-    toast.success("Contact edited succesfully 📝", {
+    toast.success("Contact edited successfully 📝", {
       duration: 3000,
       position: "bottom-center",
       style: {

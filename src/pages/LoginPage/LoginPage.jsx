@@ -1,12 +1,16 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
-import { useId } from "react";
+import { useId, useState } from "react";
 import * as yup from "yup";
 import s from "./LoginPage.module.css";
 import { useDispatch } from "react-redux";
 import { login } from "../../redux/auth/operations";
 import { MdBookmarkAdded } from "react-icons/md";
+import { FaEyeSlash } from "react-icons/fa6";
+import { IoEye } from "react-icons/io5";
 
 const LoginPage = () => {
+  const [showPass, setShowPass] = useState();
+
   const dispatch = useDispatch();
   const initialValues = {
     email: "",
@@ -61,10 +65,17 @@ const LoginPage = () => {
           </label>
           <Field
             className={s.input}
-            type="password"
+            type={showPass ? "text" : "password"}
             name="password"
             id={passwordFieldId}
           />
+          <button
+            className={s.eye_icon}
+            type="button"
+            onClick={() => setShowPass((prev) => !prev)}
+          >
+            {showPass ? <IoEye className={s.eye_icon_show}/> : <FaEyeSlash />}
+          </button>
           <ErrorMessage name="password" component="span" />
         </div>
         <button className={s.button} type="submit">

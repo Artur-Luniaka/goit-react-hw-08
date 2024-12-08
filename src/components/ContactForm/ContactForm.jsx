@@ -31,7 +31,7 @@ const ContactForm = () => {
 
   const addNewContact = (values, actions) => {
     dispatch(addContact(values));
-    toast.success("Contact added succesfully 🥳", {
+    toast.success("Contact added successfully 🥳", {
       duration: 3000,
       position: "bottom-center",
       style: {

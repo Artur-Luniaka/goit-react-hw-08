@@ -9,9 +9,9 @@ export const selectEditForm = (state) => state.contacts.editForm;
 export const selectFilteredContacts = createSelector(
   [selectContacts, selectNameFilter],
   (contacts, setNameFilter) =>
-    contacts.filter((contact) =>
-      setNameFilter
-        ? contact.name.toLowerCase().includes(setNameFilter.toLowerCase())
-        : true
+    contacts.filter(
+      (contact) =>
+        contact.name.toLowerCase().includes(setNameFilter.toLowerCase()) ||
+        contact.number.includes(setNameFilter)
     )
 );

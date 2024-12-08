@@ -11,8 +11,8 @@ const SearchBox = () => {
     <>
       <div className={s.div}>
         <p className={s.text}>
+          Find contact by name or number
           <MdOutlinePersonSearch className={s.icon} />
-          Find contacts by name
         </p>
         <input className={s.input} type="text" onChange={handleSearchChange} />
       </div>
