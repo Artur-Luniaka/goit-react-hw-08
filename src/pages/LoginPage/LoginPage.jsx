@@ -60,22 +60,24 @@ const LoginPage = () => {
           <ErrorMessage name="email" component="span" />
         </div>
         <div className={s.box}>
-          <label className={s.label} htmlFor={passwordFieldId}>
-            Password
-          </label>
-          <Field
-            className={s.input}
-            type={showPass ? "text" : "password"}
-            name="password"
-            id={passwordFieldId}
-          />
-          <button
-            className={s.eye_icon}
-            type="button"
-            onClick={() => setShowPass((prev) => !prev)}
-          >
-            {showPass ? <IoEye className={s.eye_icon_show}/> : <FaEyeSlash />}
-          </button>
+          <div className={s.box}>
+            <label className={s.label} htmlFor={passwordFieldId}>
+              Password
+            </label>
+            <Field
+              className={s.input}
+              type={showPass ? "text" : "password"}
+              name="password"
+              id={passwordFieldId}
+            />
+            <button
+              className={s.eye_icon}
+              type="button"
+              onClick={() => setShowPass((prev) => !prev)}
+            >
+              {showPass ? <IoEye /> : <FaEyeSlash />}
+            </button>
+          </div>
           <ErrorMessage name="password" component="span" />
         </div>
         <button className={s.button} type="submit">
