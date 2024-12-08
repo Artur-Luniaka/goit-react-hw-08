@@ -15,6 +15,12 @@ export const register = createAsyncThunk(
   "auth/register",
   async ({ name, email, password }, thunkApi) => {
     try {
+      const response = await axios.post("/users/signup", {
+        name,
+        email,
+        password,
+      });
+      setAuthHeader(response.data.token);
       toast.success("Successfully signedUp ✅", {
         position: "bottom-center",
         duration: 3000,
@@ -23,12 +29,6 @@ export const register = createAsyncThunk(
           color: "#2ecc71",
         },
       });
-      const response = await axios.post("/users/signup", {
-        name,
-        email,
-        password,
-      });
-      setAuthHeader(response.data.token);
       return response.data;
     } catch (e) {
       toast.error("Invalid data, try again 😑", {
@@ -48,6 +48,11 @@ export const login = createAsyncThunk(
   "auth/login",
   async ({ email, password }, thunkApi) => {
     try {
+      const response = await axios.post("/users/login", {
+        email,
+        password,
+      });
+      setAuthHeader(response.data.token);
       toast.success("Successfully logged ✅", {
         position: "bottom-center",
         duration: 3000,
@@ -56,11 +61,6 @@ export const login = createAsyncThunk(
           color: "#2ecc71",
         },
       });
-      const response = await axios.post("/users/login", {
-        email,
-        password,
-      });
-      setAuthHeader(response.data.token);
       return response.data;
     } catch (e) {
       toast.error("Invalid data, try again 😑", {
