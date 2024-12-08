@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 axios.defaults.baseURL = "https://connections-api.goit.global";
 
@@ -22,6 +23,14 @@ export const register = createAsyncThunk(
       setAuthHeader(response.data.token);
       return response.data;
     } catch (e) {
+      toast.error("Invalid data, try again 😑", {
+        position: "bottom-center",
+        duration: 3000,
+        style: {
+          backgroundColor: "red",
+          color: "white",
+        },
+      });
       return thunkApi.rejectWithValue(e.message);
     }
   }
@@ -31,6 +40,14 @@ export const login = createAsyncThunk(
   "auth/login",
   async ({ email, password }, thunkApi) => {
     try {
+      toast.success("Successfully logged ✅", {
+        position: "bottom-center",
+        duration: 3000,
+        style: {
+          backgroundColor: "#f8f8f8",
+          color: "#2ecc71",
+        },
+      });
       const response = await axios.post("/users/login", {
         email,
         password,
@@ -38,6 +55,14 @@ export const login = createAsyncThunk(
       setAuthHeader(response.data.token);
       return response.data;
     } catch (e) {
+      toast.error("Invalid data, try again 😑", {
+        position: "bottom-center",
+        duration: 3000,
+        style: {
+          backgroundColor: "red",
+          color: "white",
+        },
+      });
       return thunkApi.rejectWithValue(e.message);
     }
   }
@@ -45,6 +70,14 @@ export const login = createAsyncThunk(
 
 export const logout = createAsyncThunk("auth/logout", async (_, thunkApi) => {
   try {
+    toast.success("Successfully logged out ✅", {
+      position: "bottom-center",
+      duration: 3000,
+      style: {
+        backgroundColor: "#f8f8f8",
+        color: "#2ecc71",
+      },
+    });
     await axios.post("/users/logout");
     clearAuthHeader();
   } catch (e) {
