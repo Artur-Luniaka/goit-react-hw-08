@@ -5,6 +5,7 @@ import {
   deleteContact,
   editContact,
 } from "./operations";
+import { logout } from "../auth/operations";
 
 const initialState = {
   items: [],
@@ -44,6 +45,7 @@ const slice = createSlice({
       .addCase(fetchContacts.fulfilled, (state, action) => {
         state.items = action.payload;
       })
+      .addCase(logout.fulfilled, () => initialState)
       .addCase(addContact.fulfilled, (state, action) => {
         state.items.push(action.payload);
       })
